@@ -8,7 +8,7 @@ const Header = () => {
 
   const onClickBlogIcon = useCallback(() => {
     navigate("/");
-  }, []);
+  }, [navigate]);
 
   return (
     <header className="Header">
