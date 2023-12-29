@@ -1,21 +1,16 @@
 import React, { useCallback } from "react";
 
 import "./Semantic.css";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const navigate = useNavigate();
-
-  const onClickBlogIcon = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
-
   return (
     <header className="Header">
       <div className="blog-icon">
-        <img src="/codesver.png" alt="codesver" width={30} height={30} onClick={onClickBlogIcon} />
+        <a href="/">
+          <img src="/codesver.png" alt="codesver" width={30} height={30} />
+        </a>
       </div>
-      <h2>Codesver's Developer Blog</h2>
+      <h2>Codesver</h2>
       <div className="blog-menu">
         <button className="menu">Menu</button>
       </div>
