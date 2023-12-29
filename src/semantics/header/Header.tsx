@@ -1,6 +1,5 @@
 import React from "react";
 
-import "../Semantic.css";
 import Menu from "./Menu";
 
 const Header = () => {
