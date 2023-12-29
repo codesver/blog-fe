@@ -1,4 +1,4 @@
-import Header from "./semantics/Header";
+import Header from "./semantics/header/Header";
 
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";

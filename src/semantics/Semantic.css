@@ -6,17 +6,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: black;
 
   .blog-icon {
     width: 150px;
-
   }
+}
 
-  .blog-menu {
-    width: 150px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
+.Menu {
+  width: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
