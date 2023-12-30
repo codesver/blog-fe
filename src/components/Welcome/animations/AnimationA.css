@@ -1,4 +1,4 @@
-.AnimationA {
+.Animation {
   width: 150px;
   height: 150px;
   display: flex;
@@ -8,13 +8,13 @@
   border-radius: 50%;
   box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 1), inset 10px 10px 10px rgba(0, 0, 0, 0.1);
 
-  .ball {
+  & span {
     height: 100px;
     width: 100px;
     animation: rotate 5s linear infinite;
   }
 
-  .ball::before {
+  & span::before {
     content: "";
     width: 15px;
     height: 15px;
@@ -25,7 +25,7 @@
   }
 }
 
-.AnimationA::before {
+.Animation::before {
   width: 100px;
   height: 100px;
   content: "";

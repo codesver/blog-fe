@@ -1,12 +1,12 @@
 import React from "react";
 
+import Animation from "./animations/Animation"
 import "./Welcome.css";
-import AnimationA from "./animations/AnimationA";
 
 const Welcome = () => {
   return (
     <div className="Welcome">
-      <AnimationA />
+      <Animation />
     </div>
   );
 };
