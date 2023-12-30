@@ -1,6 +1,7 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
-import "./LoginPage.css"
+import "./LoginPage.css";
+import Welcome from "../components/Welcome/Welcome";
 
 const LoginPage = () => {
   const [username, setUsername] = useState<string>("");
@@ -21,9 +22,7 @@ const LoginPage = () => {
   return (
     <div className="LoginPage">
       <div className="login-wrapper">
-        <div className="title">
-          HELLO
-        </div>
+        <Welcome />
         <div className="login-form" onSubmit={() => false}>
           <div className="account-inputs">
             <input type="text" className="account-input" placeholder="Username" maxLength={25} onChange={(e) => onChangeAccountInfo("ID", e.target.value)} />
