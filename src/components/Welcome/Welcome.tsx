@@ -1,13 +1,12 @@
 import React from "react";
 
 import "./Welcome.css";
+import AnimationA from "./animations/AnimationA";
 
 const Welcome = () => {
   return (
     <div className="Welcome">
-      <div className="wrapper">
-        <div className="ball"></div>
-      </div>
+      <AnimationA />
     </div>
   );
 };

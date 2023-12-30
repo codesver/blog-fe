@@ -1,0 +1,41 @@
+.AnimationA {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 1), inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+
+  .ball {
+    height: 100px;
+    width: 100px;
+    animation: rotate 5s linear infinite;
+  }
+
+  .ball::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #127cea, #165161);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+  }
+}
+
+.AnimationA::before {
+  width: 100px;
+  height: 100px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 1), 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
