@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./AnimationA.css"
+import "./AnimationC.css"
 
 const Animation = () => {
   return (
