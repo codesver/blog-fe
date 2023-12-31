@@ -9,6 +9,7 @@
   .login-wrapper {
     width: 500px;
     height: 500px;
+    margin: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,6 +44,10 @@
         .account-input:focus {
           outline: none;
           box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+        }
+
+        .account-input:invalid {
+          box-shadow: 1px 1px 10px red;
         }
       }
 

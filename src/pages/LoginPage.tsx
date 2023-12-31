@@ -6,10 +6,15 @@ import Welcome from "../components/Welcome/Welcome";
 const LoginPage = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [required, setRequired] = useState<boolean>(false);
 
-  const onClickLoginButton = useCallback(() => {}, []);
+  const onClickLoginButton = useCallback(() => {
+    setRequired(true);
+  }, []);
 
-  const onClickGuestButton = useCallback(() => {}, []);
+  const onClickGuestButton = useCallback(() => {
+    setRequired(false);
+  }, []);
 
   return (
     <div className="LoginPage">
