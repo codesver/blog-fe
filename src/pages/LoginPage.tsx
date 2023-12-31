@@ -1,19 +1,21 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
+
+import Welcome from "../components/Welcome/Welcome";
 
 import "./LoginPage.css";
-import Welcome from "../components/Welcome/Welcome";
+import { Toast } from "../utils/Alarm";
 
 const LoginPage = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [required, setRequired] = useState<boolean>(false);
 
-  const onClickLoginButton = useCallback(() => {
-    setRequired(true);
-  }, []);
+  const onClickLoginButton = useCallback(() => {}, []);
 
   const onClickGuestButton = useCallback(() => {
-    setRequired(false);
+    if (!username) {
+      Toast.error("Enter your name");
+    } else if (username.length < 6) {
+    }
   }, []);
 
   return (
