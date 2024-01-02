@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
 
-import "./Semantic.css";
+import Menu from "./Menu";
 
 const Header = () => {
   return (
@@ -11,9 +11,7 @@ const Header = () => {
         </a>
       </div>
       <h2>Codesver</h2>
-      <div className="blog-menu">
-        <button className="menu">Menu</button>
-      </div>
+      <Menu />
     </header>
   );
 };

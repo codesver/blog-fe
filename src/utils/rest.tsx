@@ -14,7 +14,7 @@ interface Response {
 
 const baseUrl: string = "https://localhost:8080";
 
-export const REST = async (request: Request) => {
+const REST = async (request: Request) => {
   const response: Response = {} as Response;
 
   await axios
@@ -35,3 +35,5 @@ export const REST = async (request: Request) => {
 
   return response;
 };
+
+export default REST;

@@ -1,0 +1,78 @@
+.LoginPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0e0e0;
+
+  .login-wrapper {
+    width: 500px;
+    height: 500px;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+
+    .login-form {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .account-inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .account-input {
+          width: 50%;
+          margin: 1rem;
+          padding: 1rem;
+          border: none;
+          border-radius: 1rem;
+          background: #e0e0e0;
+          box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
+        }
+
+        .account-input:focus {
+          outline: none;
+          box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+        }
+
+        .account-input.error {
+          box-shadow: 1px 1px 10px red;
+        }
+      }
+
+      .account-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .account-button {
+          width: 25%;
+          margin: 1rem;
+          padding: 1rem;
+          border: none;
+          border-radius: 1rem;
+          background: #e0e0e0;
+          box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
+        }
+
+        .account-button:hover,
+        .account-button:focus-visible {
+          outline: none;
+          box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+        }
+      }
+    }
+  }
+}

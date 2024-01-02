@@ -1,13 +1,43 @@
-html, body {
+/* Basic Css */
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(25, 25, 25);
+  /* background-color: rgb(25, 25, 25); */
 }
 
 #root {
   width: 100%;
   height: 100%;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+/* [ Semantics ] */
+/* < Header > */
+.Header {
+  height: 50px;
+  margin: 25px;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+
+  .blog-icon {
+    width: 150px;
+  }
+}
+
+.Menu {
+  width: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
