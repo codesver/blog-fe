@@ -1,7 +1,6 @@
 import React from "react";
 
-import Animation from "./animations/Animation"
-import "./Welcome.css";
+import Animation from "./Animation"
 
 const Welcome = () => {
   return (

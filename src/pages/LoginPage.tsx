@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 
 import Welcome from "../components/Welcome/Welcome";
 
-import "./LoginPage.css";
 import { Toast } from "../utils/Alarm";
 
 const LoginPage = () => {
