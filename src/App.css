@@ -131,6 +131,7 @@ body {
 
         .account-button {
           width: 25%;
+          min-width: fit-content;
           margin: 1rem;
           padding: 1rem;
           border: none;
