@@ -15,3 +15,170 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+/* Basic Css */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: rgb(25, 25, 25); */
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+/* [ Semantics ] */
+/* < Header > */
+.Header {
+  height: 50px;
+  margin: 25px;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+
+  .blog-icon {
+    width: 150px;
+  }
+}
+
+.Menu {
+  width: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* [ Pages ] */
+/* < Login Page > */
+.LoginPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0e0e0;
+
+  .login-wrapper {
+    width: 500px;
+    height: 500px;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+
+    .Welcome {
+      width: 50%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .Animation {
+        width: 5em;
+        height: 5em;
+        background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+        animation: spin 3s infinite;
+      }
+
+      .Animation::before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+        transform: translate3d(0, 0, 0) scale(0.95);
+        filter: blur(20px);
+      }
+    }
+
+    .login-form {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .account-inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .account-input {
+          width: 50%;
+          margin: 1rem;
+          padding: 1rem;
+          border: none;
+          border-radius: 1rem;
+          background: #e0e0e0;
+          box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
+        }
+
+        .account-input:focus {
+          outline: none;
+          box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+        }
+
+        .account-input.error {
+          box-shadow: 1px 1px 10px red;
+        }
+      }
+
+      .account-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .account-button {
+          width: 25%;
+          min-width: fit-content;
+          margin: 1rem;
+          padding: 1rem;
+          border: none;
+          border-radius: 1rem;
+          background: #e0e0e0;
+          box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
+        }
+
+        .account-button:hover,
+        .account-button:focus-visible {
+          outline: none;
+          box-shadow: inset 20px 20px 60px #c5c5c5, inset -20px -20px 60px #ffffff;
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    transform: rotate(-360deg);
+    border-radius: 50%;
+  }
+
+  100% {
+    transform: rotate(-45deg);
+  }
+}
