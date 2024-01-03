@@ -4,65 +4,74 @@ import Welcome from "../components/Welcome/Welcome";
 
 import { Toast } from "../utils/Alarm";
 
+interface Account {
+  username: string;
+  password: string;
+}
+
+interface AccountError {
+  username: boolean;
+  password: boolean;
+}
+
 const LoginPage = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [usernameError, setUsernameError] = useState<boolean>(false);
-  const [passwordError, setPasswordError] = useState<boolean>(false);
+  const [account, setAccount] = useState<Account>({
+    username: "",
+    password: "",
+  });
 
-  const onChangeUsername = useCallback(
-    (username: string) => {
-      setUsername(username);
-      setUsernameError(false);
+  const [accountError, setAccountError] = useState<AccountError>({
+    username: false,
+    password: false,
+  });
+
+  const onChangeAccount = useCallback(
+    (accountInfo: Partial<Account>) => {
+      setAccountError({
+        username: false,
+        password: false,
+      });
+      setAccount({
+        ...account,
+        ...accountInfo,
+      });
     },
-    [setUsername, setUsernameError]
+    [account, setAccount]
   );
 
-  const onChangePassword = useCallback(
-    (password: string) => {
-      setPassword(password);
-      setPasswordError(false);
-    },
-    [setPassword, setPasswordError]
-  );
+  const accountValidation = useCallback(() => {
+    const validation = (value: string) => {
+      return value && value.length > 5 && /^[a-zA-Z0-9]+$/.test(value);
+    };
 
-  const usernameValidation = useCallback(() => {
-    if (!username) {
-      Toast.error("Enter username to login");
-      setUsernameError(true);
-    } else if (username.length < 6) {
-      Toast.error("Username should be longer");
-      setUsernameError(true);
-    } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
-      Toast.error("Only alphabet and number is allowed for username");
-      setUsernameError(true);
-    }
-  }, [username, setUsernameError]);
+    const validUsername = validation(account.username);
+    const validPassword = validation(account.password);
 
-  const passwordValidation = useCallback(() => {
-    if (!password) {
-      Toast.error("Enter password to login");
-      setPasswordError(true);
-    } else if (password.length < 6) {
-      Toast.error("Password should be longer");
-      setPasswordError(true);
-    } else if (!/^[a-zA-Z0-9]+$/.test(password)) {
-      Toast.error("Only alphabet and number is allowed for password");
-      setPasswordError(true);
+    if (!validUsername && !validPassword) {
+      Toast.error("Enter valid account information");
+    } else if (!validUsername) {
+      Toast.error("Enter valid username");
+    } else if (!validPassword) {
+      Toast.error("Enter valid password");
     }
-  }, [password, setPasswordError]);
+
+    setAccountError({
+      username: !validUsername,
+      password: !validPassword,
+    });
+
+    return validUsername && validPassword;
+  }, [account, setAccountError]);
 
   const onClickLoginButton = useCallback(() => {
-    usernameValidation();
-    passwordValidation();
-    // TODO connect login api
-    // TODO move to main page
-  }, [usernameValidation, passwordValidation]);
+    if (!accountValidation()) {
+      // TODO request login api and add adminer information to local storage
+    }
+  }, [accountValidation]);
 
   const onClickGuestButton = useCallback(() => {
-    usernameValidation();
-    // TODO move to main page
-  }, [usernameValidation]);
+    // TODO add guest information to local storage
+  }, []);
 
   return (
     <div className="LoginPage">
@@ -70,8 +79,8 @@ const LoginPage = () => {
         <Welcome />
         <div className="login-form" onSubmit={() => false}>
           <div className="account-inputs">
-            <input type="text" className={["account-input", usernameError ? "error" : ""].join(" ")} placeholder="Username" maxLength={25} onChange={(e) => onChangeUsername(e.target.value)} />
-            <input type="password" className={["account-input", passwordError ? "error" : ""].join(" ")} placeholder="Password" maxLength={25} onChange={(e) => onChangePassword(e.target.value)} />
+            <input type="text" className={["account-input", accountError.username ? "error" : ""].join(" ")} placeholder="Username" maxLength={25} onChange={(e) => onChangeAccount({ username: e.target.value })} />
+            <input type="password" className={["account-input", accountError.password ? "error" : ""].join(" ")} placeholder="Password" maxLength={25} onChange={(e) => onChangeAccount({ password: e.target.value })} />
           </div>
           <div className="account-buttons">
             <button className="account-button" onClick={onClickLoginButton}>
