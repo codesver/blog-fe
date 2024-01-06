@@ -1,7 +1,6 @@
 import axios from "axios";
 
 interface Request {
-  method: string;
   resource: string;
   params?: object;
   data?: object;
@@ -9,31 +8,39 @@ interface Request {
 
 interface Response {
   success: boolean;
-  data: unknown;
+  data: object | boolean | number | string;
 }
 
-const baseUrl: string = "https://localhost:8080";
+const BASE_URL: string = "http://localhost:8080";
 
-const REST = async (request: Request) => {
-  const response: Response = {} as Response;
+export const Rest = (() => {
+  async function send(method: string, request: Request) {
+    const response: Response = {} as Response;
 
-  await axios
-    .request({
-      method: request.method,
-      url: `${baseUrl}${request.resource}`,
-      params: request.params,
-      data: request.data,
-    })
-    .then((res) => {
-      response.success = true;
-      response.data = res.data;
-    })
-    .catch((err) => {
-      response.success = false;
-      response.data = err.response.data;
-    });
+    await axios
+      .request({
+        method,
+        url: `${BASE_URL}${request.resource.startsWith("/") ? "" : "/"}${request.resource}`,
+        params: request.params,
+        data: request.data,
+      })
+      .then((res) => {
+        response.success = true;
+        response.data = res.data;
+      })
+      .catch((err) => {
+        response.success = false;
+        response.data = err.response.data;
+      });
 
-  return response;
-};
+    return response;
+  }
 
-export default REST;
+  return {
+    get: (request: Request) => send("GET", request),
+    post: (request: Request) => send("POST", request),
+    put: (request: Request) => send("PUT", request),
+    patch: (request: Request) => send("PATCH", request),
+    delete: (request: Request) => send("DELETE", request),
+  };
+})();

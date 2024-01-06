@@ -3,6 +3,7 @@ import React, { useCallback, useState } from "react";
 import Welcome from "../components/Welcome/Welcome";
 
 import { Toast } from "../utils/Alarm";
+import { Rest } from "../utils/Rest";
 
 interface Account {
   username: string;
@@ -64,10 +65,10 @@ const LoginPage = () => {
   }, [account, setAccountError]);
 
   const onClickLoginButton = useCallback(() => {
-    if (!accountValidation()) {
+    if (accountValidation()) {
       // TODO request login api and add adminer information to local storage
     }
-  }, [accountValidation]);
+  }, [accountValidation, account]);
 
   const onClickGuestButton = useCallback(() => {
     // TODO add guest information to local storage
