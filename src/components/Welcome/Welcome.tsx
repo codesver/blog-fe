@@ -5,7 +5,7 @@ import Animation from "./Animation"
 const Welcome = () => {
   return (
     <div className="Welcome">
-      <Animation />
+      <Animation size={5} />
     </div>
   );
 };

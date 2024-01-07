@@ -1,8 +1,18 @@
 import React from "react";
 
-const Animation = () => {
+interface AnimationProps {
+  size: number;
+}
+
+const Animation: React.FC<AnimationProps> = ({ size }) => {
   return (
-    <div className="Animation">
+    <div
+      className="Animation"
+      style={{
+        width: `${size}em`,
+        height: `${size}em`,
+      }}
+    >
       <span></span>
     </div>
   );

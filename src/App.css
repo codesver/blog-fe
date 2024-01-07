@@ -1,7 +1,12 @@
+/* Basic */
 @import url("./resources/styles/Basic.css");
 
 /* Pages */
 @import url("./resources/styles/LoginPage.css");
+@import url("./resources/styles/MainPage.css");
 
 /* Semantics */
 @import url("./resources/styles/Header.css");
+
+/* Animations */
+@import url("./resources/styles/Animation.css");
